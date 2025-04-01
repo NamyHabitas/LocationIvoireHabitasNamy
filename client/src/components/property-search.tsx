@@ -27,9 +27,9 @@ export default function PropertySearch() {
   const handleSearch = () => {
     let queryParams = [];
     
-    if (location) queryParams.push(`location=${encodeURIComponent(location)}`);
-    if (propertyType) queryParams.push(`type=${encodeURIComponent(propertyType)}`);
-    if (budget) queryParams.push(`maxPrice=${encodeURIComponent(budget)}`);
+    if (location && location !== "all") queryParams.push(`location=${encodeURIComponent(location)}`);
+    if (propertyType && propertyType !== "all") queryParams.push(`type=${encodeURIComponent(propertyType)}`);
+    if (budget && budget !== "all") queryParams.push(`maxPrice=${encodeURIComponent(budget)}`);
     
     const queryString = queryParams.length > 0 ? `?${queryParams.join('&')}` : '';
     setLocation2(`/properties${queryString}`);
@@ -47,12 +47,14 @@ export default function PropertySearch() {
                 <SelectValue placeholder="Toutes les villes" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Toutes les villes</SelectItem>
+                <SelectItem value="all">Toutes les villes</SelectItem>
                 <SelectItem value="Abidjan">Abidjan</SelectItem>
                 <SelectItem value="Yamoussoukro">Yamoussoukro</SelectItem>
                 <SelectItem value="Bouaké">Bouaké</SelectItem>
                 <SelectItem value="Grand-Bassam">Grand-Bassam</SelectItem>
                 <SelectItem value="Korhogo">Korhogo</SelectItem>
+                <SelectItem value="Cocody">Cocody</SelectItem>
+                <SelectItem value="Cocody-Palmeraie">Cocody-Palmeraie</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -63,7 +65,7 @@ export default function PropertySearch() {
                 <SelectValue placeholder="Tous les types" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Tous les types</SelectItem>
+                <SelectItem value="all">Tous les types</SelectItem>
                 <SelectItem value="apartment">Appartement</SelectItem>
                 <SelectItem value="house">Maison</SelectItem>
                 <SelectItem value="commercial">Local Commercial</SelectItem>
@@ -78,7 +80,7 @@ export default function PropertySearch() {
                 <SelectValue placeholder="Tous les prix" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Tous les prix</SelectItem>
+                <SelectItem value="all">Tous les prix</SelectItem>
                 <SelectItem value="100000">100 000 FCFA/mois</SelectItem>
                 <SelectItem value="250000">250 000 FCFA/mois</SelectItem>
                 <SelectItem value="500000">500 000 FCFA/mois</SelectItem>

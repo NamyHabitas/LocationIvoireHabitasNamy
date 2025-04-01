@@ -30,12 +30,13 @@ export default function Header() {
             <ul className="flex space-x-8">
               {navLinks.map((link) => (
                 <li key={link.path}>
-                  <Link href={link.path}>
-                    <a className={`font-medium hover:text-primary transition-colors ${
+                  <Link 
+                    href={link.path}
+                    className={`font-medium hover:text-primary transition-colors ${
                       location === link.path ? "text-primary" : "text-neutral-800"
-                    }`}>
-                      {link.title}
-                    </a>
+                    }`}
+                  >
+                    {link.title}
                   </Link>
                 </li>
               ))}
@@ -57,15 +58,15 @@ export default function Header() {
             <SheetContent>
               <div className="flex flex-col space-y-4 mt-8">
                 {navLinks.map((link) => (
-                  <Link key={link.path} href={link.path}>
-                    <a 
-                      className={`font-medium text-lg py-2 ${
-                        location === link.path ? "text-primary" : "text-neutral-800"
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {link.title}
-                    </a>
+                  <Link 
+                    key={link.path} 
+                    href={link.path}
+                    className={`font-medium text-lg py-2 ${
+                      location === link.path ? "text-primary" : "text-neutral-800"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.title}
                   </Link>
                 ))}
               </div>
