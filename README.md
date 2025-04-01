@@ -4,20 +4,15 @@
 
 ## Description
 
-Maman Location est une plateforme de location d'appartements et d'espaces commerciaux en Côte d'Ivoire. Ce site portfolio présente les propriétés disponibles à la location, permet aux utilisateurs de rechercher et filtrer les annonces, et de contacter les gestionnaires immobiliers.
+Maman Location est une plateforme simplifiée de présentation d'appartements et d'espaces commerciaux à louer en Côte d'Ivoire. Ce site portfolio présente les propriétés disponibles, avec un design épuré et optimisé pour la vitesse.
 
 ## Fonctionnalités
 
-- 🏠 Affichage des propriétés à louer avec photos, descriptions et tarifs
-- 🔍 Recherche et filtrage des propriétés par localisation, type et prix
+- 🏠 Présentation élégante des propriétés avec photos et descriptions détaillées
+- 🔍 Navigation par localité et type de propriété
 - 📱 Design responsive adapté à tous les appareils (mobile, tablette, desktop)
-- 🌐 Support multilingue (français et anglais)
-- 📞 Formulaire de contact pour les demandes de renseignements
-- 🗺️ Affichage des emplacements des propriétés
-
-## Captures d'écran
-
-*(Ajoutez ici des captures d'écran du site une fois qu'il sera plus avancé)*
+- 📞 Formulaire de contact pour demander des renseignements
+- ✨ Interface utilisateur moderne et intuitive
 
 ## Installation
 
@@ -27,43 +22,44 @@ En résumé:
 
 1. Cloner le dépôt
 2. Installer les dépendances avec `npm install`
-3. Configurer les variables d'environnement
-4. Lancer l'application avec `npm run dev`
+3. Lancer l'application avec `npm run dev`
 
 Le site sera accessible à l'adresse [http://localhost:5000](http://localhost:5000).
 
-## Technologie
+## Technologies
 
-Ce projet utilise:
+Ce projet utilise une stack moderne et optimisée:
 
 - **Frontend**: React, TypeScript, TailwindCSS, Shadcn UI
-- **Backend**: Node.js, Express
+- **Backend**: Node.js, Express avec stockage en mémoire
 - **State Management**: React Query
-- **Routing**: wouter
+- **Routing**: wouter pour une navigation légère
 - **Forms**: React Hook Form avec validation Zod
-- **Styling**: Tailwind CSS 
+- **Styling**: Tailwind CSS pour un design efficace
 
 ## Structure du projet
 
 ```
 maman-location/
-├── client/               # Code frontend React
-├── server/               # Serveur Express
+├── client/               # Interface utilisateur React
+│   ├── src/              # Code source React
+│   └── index.html        # Point d'entrée HTML
+├── server/               # Serveur Express et logique métier
 ├── shared/               # Types et schémas partagés
-├── attachments/          # Ressources statiques
-├── public/               # Fichiers publics
-└── ...
+└── ...                   # Fichiers de configuration
 ```
 
-## Contribuer
+## Architecture simplifiée
 
-Nous accueillons les contributions! Veuillez consulter [CONTRIBUTING.md](./CONTRIBUTING.md) pour connaître les directives de contribution.
+Le projet suit une architecture légère et efficace:
+- Stockage en mémoire pour les données des propriétés et témoignages
+- Utilisation de données statiques pour les éléments ne nécessitant pas d'API
+- Absence de base de données externe pour simplifier le déploiement
+- Composants React modulaires et réutilisables
 
 ## Déploiement
 
-Le site peut être déployé sur des plateformes comme GitHub Pages, Vercel, Netlify ou un serveur personnel.
-
-Instructions de déploiement:
+Le site peut être facilement déployé sur GitHub Pages, Vercel, Netlify ou un serveur personnel:
 
 ```bash
 # Pour construire l'application pour la production
@@ -78,6 +74,5 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](./LICENSE) pour plus d
 
 ## Crédits
 
-- Développé par [Votre Nom]
-- Conception et design: [Votre Nom]
-- Photos: [Source des photos]
+- Développé pour Maman Location
+- Photos: Unsplash

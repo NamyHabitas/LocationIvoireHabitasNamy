@@ -1,13 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import {
   MapPin,
   Home,
   Droplet,
   Ruler,
-  Car,
   ShieldCheck,
   Wifi,
-  Check,
   Phone,
   Mail
 } from "lucide-react";
@@ -22,18 +20,16 @@ interface PropertyDetailsProps {
 
 export default function PropertyDetails({ propertyId }: PropertyDetailsProps) {
   const { toast } = useToast();
-  const { data: property, isLoading, isError } = useQuery<Property>({
+  
+  // Définir les options de requête avec gestion d'erreur
+  const queryOptions: UseQueryOptions<Property> = {
     queryKey: [`/api/properties/${propertyId}`],
     retry: 1,
-    onError: () => {
-      toast({
-        title: "Erreur",
-        description: "Impossible de charger les détails de la propriété.",
-        variant: "destructive",
-      });
-    },
-  });
+  };
+  
+  const { data: property, isLoading, isError } = useQuery<Property>(queryOptions);
 
+  // Afficher un état de chargement
   if (isLoading) {
     return (
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -77,7 +73,14 @@ export default function PropertyDetails({ propertyId }: PropertyDetailsProps) {
     );
   }
 
+  // Afficher un message d'erreur si la propriété n'existe pas
   if (isError || !property) {
+    toast({
+      title: "Erreur",
+      description: "Impossible de charger les détails de la propriété.",
+      variant: "destructive",
+    });
+    
     return (
       <div className="bg-white rounded-lg shadow-lg overflow-hidden p-6">
         <div className="text-center py-8">
@@ -88,19 +91,23 @@ export default function PropertyDetails({ propertyId }: PropertyDetailsProps) {
     );
   }
 
+  // Garantir que images est un tableau non-null
+  const images = property.images || [];
+
+  // Afficher les détails de la propriété
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Property Gallery */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
         <div className="md:col-span-2 h-96 rounded-lg overflow-hidden">
           <img 
-            src={property.images[0]} 
+            src={images.length > 0 ? images[0] : 'https://placehold.co/600x400?text=Property+Image'} 
             alt={property.title} 
             className="w-full h-full object-cover"
           />
         </div>
         <div className="grid grid-rows-2 gap-4 h-96">
-          {property.images.slice(1, 3).map((image, index) => (
+          {images.slice(1, 3).map((image: string, index: number) => (
             <div key={index} className="rounded-lg overflow-hidden">
               <img 
                 src={image} 
@@ -109,7 +116,7 @@ export default function PropertyDetails({ propertyId }: PropertyDetailsProps) {
               />
             </div>
           ))}
-          {property.images.length === 1 && (
+          {images.length === 1 && (
             <>
               <div className="rounded-lg overflow-hidden bg-neutral-200 flex items-center justify-center">
                 <p className="text-neutral-500">Pas d'image disponible</p>
@@ -119,7 +126,7 @@ export default function PropertyDetails({ propertyId }: PropertyDetailsProps) {
               </div>
             </>
           )}
-          {property.images.length === 2 && (
+          {images.length === 2 && (
             <div className="rounded-lg overflow-hidden bg-neutral-200 flex items-center justify-center">
               <p className="text-neutral-500">Pas d'image disponible</p>
             </div>
@@ -133,7 +140,7 @@ export default function PropertyDetails({ propertyId }: PropertyDetailsProps) {
           <div>
             <h3 className="text-2xl font-heading font-bold text-neutral-800">{property.title}</h3>
             <p className="text-neutral-600 flex items-center">
-              <MapPin size={16} className="mr-1" /> {property.neighborhood}, {property.location}
+              <MapPin size={16} className="mr-1" /> {property.location}
             </p>
           </div>
           <div className="text-right">
@@ -142,7 +149,7 @@ export default function PropertyDetails({ propertyId }: PropertyDetailsProps) {
               <span className="text-sm font-normal text-neutral-600">/mois</span>
             </p>
             <p className="text-neutral-600 text-sm">
-              {property.availableImmediately ? "Disponible immédiatement" : "Disponibilité à confirmer"}
+              Disponible immédiatement
             </p>
           </div>
         </div>
@@ -156,13 +163,13 @@ export default function PropertyDetails({ propertyId }: PropertyDetailsProps) {
             
             <h4 className="text-lg font-heading font-semibold text-neutral-800 mb-3">Caractéristiques</h4>
             <div className="grid grid-cols-2 gap-y-2 gap-x-4 mb-6">
-              {property.bedrooms !== undefined && property.bedrooms > 0 && (
+              {property.bedrooms !== undefined && property.bedrooms !== null && property.bedrooms > 0 && (
                 <div className="flex items-center text-neutral-600">
                   <Home className="mr-2 text-primary h-5 w-5" />
                   <span>{property.bedrooms} {property.bedrooms > 1 ? 'chambres' : 'chambre'}</span>
                 </div>
               )}
-              {property.bathrooms !== undefined && property.bathrooms > 0 && (
+              {property.bathrooms !== undefined && property.bathrooms !== null && property.bathrooms > 0 && (
                 <div className="flex items-center text-neutral-600">
                   <Droplet className="mr-2 text-primary h-5 w-5" />
                   <span>{property.bathrooms} {property.bathrooms > 1 ? 'salles de bain' : 'salle de bain'}</span>
@@ -172,31 +179,15 @@ export default function PropertyDetails({ propertyId }: PropertyDetailsProps) {
                 <Ruler className="mr-2 text-primary h-5 w-5" />
                 <span>{property.area} m²</span>
               </div>
-              {property.parking && (
-                <div className="flex items-center text-neutral-600">
-                  <Car className="mr-2 text-primary h-5 w-5" />
-                  <span>Parking</span>
-                </div>
-              )}
               <div className="flex items-center text-neutral-600">
                 <ShieldCheck className="mr-2 text-primary h-5 w-5" />
-                <span>Gardien 24/7</span>
+                <span>Sécurité</span>
               </div>
               <div className="flex items-center text-neutral-600">
                 <Wifi className="mr-2 text-primary h-5 w-5" />
                 <span>Internet</span>
               </div>
             </div>
-            
-            <h4 className="text-lg font-heading font-semibold text-neutral-800 mb-3">Équipements</h4>
-            <ul className="grid grid-cols-2 gap-y-2 gap-x-4 text-neutral-600">
-              {property.amenities.map((amenity, index) => (
-                <li key={index} className="flex items-center">
-                  <Check className="mr-2 text-green-600 h-5 w-5" />
-                  <span>{amenity}</span>
-                </li>
-              ))}
-            </ul>
           </div>
           
           <div>
@@ -227,9 +218,9 @@ export default function PropertyDetails({ propertyId }: PropertyDetailsProps) {
                   <Phone size={16} className="mr-2" />
                   <span>+225 07 07 07 07 07</span>
                 </a>
-                <a href="mailto:contact@ivoirehabitat.ci" className="flex items-center text-neutral-700 hover:text-primary">
+                <a href="mailto:contact@mamanlocation.ci" className="flex items-center text-neutral-700 hover:text-primary">
                   <Mail size={16} className="mr-2" />
-                  <span>contact@ivoirehabitat.ci</span>
+                  <span>contact@mamanlocation.ci</span>
                 </a>
               </div>
             </div>
@@ -238,7 +229,7 @@ export default function PropertyDetails({ propertyId }: PropertyDetailsProps) {
             <div className="mt-6 rounded-lg overflow-hidden h-64 bg-neutral-200 flex items-center justify-center">
               <div className="text-center">
                 <MapPin size={32} className="text-neutral-400 mx-auto mb-2" />
-                <p className="text-neutral-600">Carte du quartier {property.neighborhood} - {property.location}</p>
+                <p className="text-neutral-600">Carte de {property.location}</p>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 # Guide de démarrage - Maman Location
 
-Ce guide vous explique comment installer et lancer l'application Maman Location sur votre environnement local.
+Ce guide vous explique comment installer et lancer le site portfolio Maman Location, une plateforme simplifiée de présentation d'appartements et d'espaces commerciaux à louer en Côte d'Ivoire.
 
 ## 1. Prérequis
 
@@ -17,17 +17,15 @@ npm -v
 
 ## 2. Installation
 
-Suivez ces étapes pour configurer le projet sur votre machine :
+Suivez ces étapes pour configurer le projet :
 
 ### 2.1 Obtenir le code source
 
-Clonez le dépôt Git :
+Clonez le dépôt Git ou téléchargez l'archive du code source :
 ```bash
 git clone https://github.com/votre-username/maman-location.git
 cd maman-location
 ```
-
-Ou téléchargez et décompressez l'archive du code source.
 
 ### 2.2 Installer les dépendances
 
@@ -36,16 +34,7 @@ Exécutez la commande suivante pour installer toutes les bibliothèques nécessa
 npm install
 ```
 
-Cette commande lit le fichier `package.json` et installe toutes les dépendances requises.
-
-### 2.3 Configuration de l'environnement
-
-Créez un fichier `.env` à partir de l'exemple fourni :
-```bash
-cp .env.example .env
-```
-
-Ouvrez le fichier `.env` et modifiez les variables si nécessaire pour votre environnement local.
+Cette commande installe automatiquement toutes les dépendances requises pour le frontend et le backend.
 
 ## 3. Lancement de l'application
 
@@ -56,9 +45,9 @@ Pour lancer l'application en mode développement avec rechargement automatique :
 npm run dev
 ```
 
-Cette commande démarre :
-- Le serveur backend Express sur le port 5000
-- Le serveur frontend Vite avec rechargement à chaud
+Cette commande démarre à la fois :
+- Le serveur Express (backend) avec stockage en mémoire
+- L'application React (frontend) avec rechargement à chaud
 
 L'application sera accessible à l'adresse : **http://localhost:5000**
 
@@ -76,41 +65,77 @@ Pour lancer la version de production :
 npm start
 ```
 
-## 4. Structure des dossiers
+## 4. Architecture simplifiée
 
-Voici la structure principale du projet :
+L'application utilise une approche simplifiée avec les caractéristiques suivantes :
+
+- **Stockage en mémoire** : Les données sont stockées en mémoire sans base de données externe
+- **Données statiques** : Certains éléments comme les catégories de localisation utilisent des données statiques
+- **Modèle simplifié** : Le modèle de données est léger mais évolutif
+
+## 5. Structure du projet
+
 ```
 maman-location/
-├── client/               # Code frontend React
-│   ├── src/              # Composants, pages, hooks, etc.
+├── client/               # Interface utilisateur React
+│   ├── src/
+│   │   ├── components/   # Composants réutilisables
+│   │   ├── pages/        # Pages principales
+│   │   ├── hooks/        # Hooks personnalisés
+│   │   └── lib/          # Fonctions utilitaires
 │   └── index.html        # Point d'entrée HTML
 ├── server/               # Serveur Express
-│   ├── routes.ts         # Définition des routes API
-│   └── storage.ts        # Gestion du stockage des données
+│   ├── routes.ts         # Définition des API endpoints
+│   └── storage.ts        # Gestionnaire de stockage en mémoire
 ├── shared/               # Types et schémas partagés
-└── ...
+│   └── schema.ts         # Modèles de données
+└── ...                   # Fichiers de configuration
 ```
 
-## 5. Dépannage
+## 6. Personnalisation
+
+### 6.1 Modifier les propriétés
+
+Les propriétés sont définies dans `server/storage.ts` dans la méthode `initializeData()`. Pour ajouter ou modifier des propriétés, éditez ce fichier.
+
+### 6.2 Changer l'apparence
+
+Le style du site est défini avec Tailwind CSS :
+- `theme.json` - Définit les couleurs et le thème principal
+- `tailwind.config.ts` - Configuration Tailwind
+- `client/src/index.css` - Styles globaux
+
+## 7. Déploiement
+
+L'application peut être déployée sur:
+- GitHub Pages
+- Vercel
+- Netlify 
+- Votre propre serveur
+
+Pour le déploiement, il suffit de construire l'application et de servir les fichiers statiques générés.
+
+## 8. Dépannage
 
 ### Problèmes fréquents
 
 1. **Le serveur ne démarre pas**
    - Vérifiez qu'aucune autre application n'utilise le port 5000
-   - Assurez-vous que toutes les dépendances sont installées : `npm install`
+   - Assurez-vous que toutes les dépendances sont installées: `npm install`
 
-2. **Erreurs de compilation**
-   - Vérifiez les journaux d'erreurs dans la console
-   - Assurez-vous que votre version de Node.js est compatible
+2. **Images ne s'affichant pas**
+   - Vérifiez que les URLs des images dans `server/storage.ts` sont accessibles
+   - Utilisez des URLs d'images complètes (commençant par http/https)
 
-3. **Les données ne s'affichent pas**
-   - Consultez les requêtes réseau dans les outils de développement du navigateur
-   - Vérifiez que les API renvoient des données dans le format attendu
+## 9. Évolutions futures
 
-## 6. Contribution
+L'architecture a été conçue pour évoluer facilement. Voici quelques pistes d'amélioration:
+- Ajout d'un système d'authentification
+- Base de données externe (PostgreSQL)
+- Système de réservation
+- Calendrier de disponibilité
+- Blog et actualités
 
-Si vous souhaitez contribuer au projet, consultez le fichier [CONTRIBUTING.md](./CONTRIBUTING.md) pour connaître les directives.
-
-## 7. Licence
+## 10. Licence
 
 Ce projet est sous licence MIT. Voir le fichier [LICENSE](./LICENSE) pour plus de détails.
