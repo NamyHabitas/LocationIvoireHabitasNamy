@@ -21,32 +21,14 @@ Maman Location est une plateforme de location d'appartements et d'espaces commer
 
 ## Installation
 
-### Prérequis
+Pour des instructions détaillées sur l'installation et l'exécution du projet, veuillez consulter notre [Guide de démarrage](./GETTING_STARTED.md).
 
-- Node.js (v18 ou plus récent)
-- npm (v8 ou plus récent)
+En résumé:
 
-### Étapes d'installation
-
-1. Cloner le dépôt:
-   ```
-   git clone https://github.com/votre-username/maman-location.git
-   cd maman-location
-   ```
-
-2. Installer les dépendances:
-   ```
-   npm install
-   ```
-
-3. Configurer les variables d'environnement:
-   - Copiez le fichier `.env.example` en `.env`
-   - Modifiez les variables si nécessaire
-
-4. Lancer l'application en mode développement:
-   ```
-   npm run dev
-   ```
+1. Cloner le dépôt
+2. Installer les dépendances avec `npm install`
+3. Configurer les variables d'environnement
+4. Lancer l'application avec `npm run dev`
 
 Le site sera accessible à l'adresse [http://localhost:5000](http://localhost:5000).
 
