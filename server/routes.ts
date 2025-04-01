@@ -74,35 +74,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Cities endpoints
-  app.get("/api/cities", async (_req, res) => {
-    try {
-      const cities = await storage.getAllCities();
-      res.json(cities);
-    } catch (error) {
-      console.error("Error getting cities:", error);
-      res.status(500).json({ message: "Failed to get cities" });
-    }
-  });
-
-  app.get("/api/cities/:id", async (req, res) => {
-    try {
-      const id = parseInt(req.params.id);
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid city ID" });
-      }
-
-      const city = await storage.getCityById(id);
-      if (!city) {
-        return res.status(404).json({ message: "City not found" });
-      }
-
-      res.json(city);
-    } catch (error) {
-      console.error("Error getting city:", error);
-      res.status(500).json({ message: "Failed to get city" });
-    }
-  });
+  // Routes pour les villes supprimées pour simplifier l'application
 
   // Testimonials endpoints
   app.get("/api/testimonials", async (_req, res) => {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { Heart, MapPin, Home as HomeIcon, Ruler, Car } from "lucide-react";
+import { Heart, MapPin, Home as HomeIcon, Ruler } from "lucide-react";
 import { Property } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 
@@ -16,6 +16,11 @@ export default function PropertyCard({ property }: PropertyCardProps) {
     e.stopPropagation();
     setIsFavorite(!isFavorite);
   };
+
+  // Extraire la ville et le quartier à partir de la localisation
+  const locationParts = property.location.split(',').map(part => part.trim());
+  const city = locationParts[0];
+  const district = locationParts.length > 1 ? locationParts[1] : '';
 
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
@@ -50,7 +55,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         
         <p className="text-neutral-600 mb-3 text-sm flex items-center">
           <MapPin size={16} className="mr-1 flex-shrink-0" /> 
-          <span className="line-clamp-1">{property.neighborhood}, {property.location}</span>
+          <span className="line-clamp-1">{property.location}</span>
         </p>
         
         <div className="flex flex-wrap items-center text-sm text-neutral-600 gap-4 border-t border-neutral-200 pt-3">
@@ -64,12 +69,6 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             <Ruler size={16} className="mr-1 flex-shrink-0" />
             <span>{property.area} m²</span>
           </div>
-          {property.parking && (
-            <div className="flex items-center">
-              <Car size={16} className="mr-1 flex-shrink-0" />
-              <span>Parking</span>
-            </div>
-          )}
         </div>
       </div>
       
