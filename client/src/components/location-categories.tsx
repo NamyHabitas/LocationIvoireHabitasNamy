@@ -1,43 +1,35 @@
-import { useQuery } from "@tanstack/react-query";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
+// Données statiques pour les localités
+const cities = [
+  {
+    id: 1,
+    name: "Abidjan",
+    imageUrl: "https://images.unsplash.com/photo-1503301360699-4f60cf292ec8",
+    propertyCount: 12
+  },
+  {
+    id: 2,
+    name: "Grand-Bassam",
+    imageUrl: "https://images.unsplash.com/photo-1617093727343-374698b1b08d",
+    propertyCount: 5
+  },
+  {
+    id: 3,
+    name: "Yamoussoukro",
+    imageUrl: "https://images.unsplash.com/photo-1603392840788-daa326ba288c",
+    propertyCount: 3
+  },
+  {
+    id: 4,
+    name: "Bouaké",
+    imageUrl: "https://images.unsplash.com/photo-1504614851636-3e12da8f55c2",
+    propertyCount: 2
+  }
+];
+
 export default function LocationCategories() {
-  const { data: cities, isLoading, isError } = useQuery({ 
-    queryKey: ['/api/cities'],
-  });
-
-  if (isLoading) {
-    return (
-      <section className="py-16 bg-neutral-100">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-heading font-bold text-neutral-800 mb-3">Explorez par Localité</h2>
-            <p className="text-neutral-600 max-w-xl mx-auto">Découvrez des propriétés dans les meilleures zones de Côte d'Ivoire, des quartiers animés d'Abidjan aux régions paisibles.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[1, 2, 3, 4].map((index) => (
-              <div key={index} className="relative rounded-lg overflow-hidden animate-pulse h-64 bg-neutral-200"></div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (isError || !cities) {
-    return (
-      <section className="py-16 bg-neutral-100">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-heading font-bold text-neutral-800 mb-3">Explorez par Localité</h2>
-            <p className="text-red-500">Erreur lors du chargement des localités. Veuillez réessayer plus tard.</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="py-16 bg-neutral-100">
       <div className="container mx-auto px-4">
