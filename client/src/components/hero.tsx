@@ -23,7 +23,7 @@ export default function Hero() {
   };
   
   return (
-    <section className="relative bg-neutral-800 h-[500px] flex items-center">
+    <section className="relative bg-neutral-800 min-h-[500px] lg:h-[500px] flex items-center py-12 lg:py-0">
       <div className="absolute inset-0 z-0">
         <img 
           src="https://images.unsplash.com/photo-1603392840788-daa326ba288c?q=80&w=1974&auto=format&fit=crop" 
@@ -32,16 +32,16 @@ export default function Hero() {
         />
       </div>
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4">
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white mb-4 text-center lg:text-left">
             Trouvez votre logement idéal en Côte d'Ivoire
           </h1>
-          <p className="text-xl text-white mb-8">
+          <p className="text-lg sm:text-xl text-white mb-8 text-center lg:text-left">
             Des appartements et locaux professionnels de qualité dans les meilleurs quartiers
           </p>
           
           {/* Search form */}
-          <div className="bg-white p-4 rounded-lg shadow-lg">
+          <div className="bg-white p-4 rounded-lg shadow-lg max-w-4xl mx-auto lg:mx-0">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <Label htmlFor="location" className="block text-sm font-medium mb-1 text-neutral-700">Lieu</Label>
