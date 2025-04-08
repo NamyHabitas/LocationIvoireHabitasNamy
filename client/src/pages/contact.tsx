@@ -67,7 +67,7 @@ export default function Contact() {
                     Email
                   </h3>
                   <p className="text-neutral-600">
-                    contact@ivoirehabitat.ci<br />
+                    habitas.namy@gmail.com<br />
                     info@ivoirehabitat.ci
                   </p>
                 </div>
@@ -95,7 +95,7 @@ export default function Contact() {
                       Horaires d'ouverture
                     </h3>
                     <p className="text-neutral-600">
-                      Lundi - Vendredi: 8h à 18h<br />
+                      Lundi - Vendredi: 10h à 18h<br />
                       Samedi: 9h à 14h<br />
                       Dimanche: Fermé
                     </p>

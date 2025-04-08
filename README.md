@@ -14,6 +14,34 @@ Maman Location est une plateforme simplifiée de présentation d'appartements et
 - 📞 Formulaire de contact pour demander des renseignements
 - ✨ Interface utilisateur moderne et intuitive
 
+## Comment utiliser l'application
+
+1. **Explorer les propriétés** : Parcourez les différentes propriétés disponibles en utilisant les filtres par localité et type de propriété.
+2. **Voir les détails** : Cliquez sur une propriété pour afficher des photos, une description détaillée et les informations de contact.
+3. **Contacter le propriétaire** : Utilisez le formulaire de contact intégré pour poser des questions ou demander plus d'informations.
+4. **Navigation mobile** : Profitez d'une expérience fluide sur tous les appareils grâce au design responsive.
+
+## Comment lancer l'application
+
+Pour lancer l'application en local, suivez ces étapes :
+
+1. **Cloner le dépôt** : Téléchargez le code source en exécutant la commande suivante dans votre terminal :
+   ```bash
+   git clone <URL_DU_DEPOT>
+   ```
+2. **Installer les dépendances** : Accédez au dossier du projet et installez les dépendances nécessaires avec :
+   ```bash
+   npm install
+   ```
+3. **Démarrer le serveur de développement** : Lancez l'application en mode développement avec :
+   ```bash
+   npm run dev
+   ```
+4. **Accéder à l'application** : Ouvrez votre navigateur et rendez-vous à l'adresse suivante :
+   [http://localhost:5000](http://localhost:5000).
+
+Ces étapes vous permettront de visualiser et de tester l'application en local.
+
 ## Installation
 
 Pour des instructions détaillées sur l'installation et l'exécution du projet, veuillez consulter notre [Guide de démarrage](./GETTING_STARTED.md).

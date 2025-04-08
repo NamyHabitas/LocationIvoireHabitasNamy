@@ -4,6 +4,7 @@ import { Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import logo from "../img/IMG_01.png";
 
 export default function Header() {
   const [location] = useLocation();
@@ -21,11 +22,12 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
-            <Home className="h-6 w-6 text-primary" />
-            <span className="text-xl font-heading font-bold text-primary">IvoireHabitat</span>
+            <img src={logo} alt="Logo" className="h-6 w-6 text-primary" />
+            <span className="text-xl font-heading font-bold text-primary">Habitas.Namy</span>
+           
           </Link>
           
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation * <Home className="h-6 w-6 text-primary" />*/}
           <nav className="hidden md:flex">
             <ul className="flex space-x-8">
               {navLinks.map((link) => (

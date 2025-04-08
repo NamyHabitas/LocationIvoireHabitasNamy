@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Home, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import logo from "../img/IMG_01.png";
 
 export default function Footer() {
   return (
@@ -8,8 +9,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Home className="text-primary text-2xl" />
-              <span className="text-xl font-heading font-bold text-white">IvoireHabitat</span>
+              <img src={logo} alt="Logo" className="h-6 w-6 text-primary" />
+              <span className="text-xl font-heading font-bold text-white">Habitas.Namy</span>
             </div>
             <p className="mb-4">
               Votre partenaire de confiance pour trouver le logement idéal en Côte d'Ivoire. 

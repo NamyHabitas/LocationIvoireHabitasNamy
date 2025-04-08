@@ -6,14 +6,14 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>À propos de nous | IvoireHabitat</title>
+        <title>À propos de nous | Habitas.Namy</title>
       </Helmet>
       
       <section className="py-12 bg-neutral-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-heading font-bold text-neutral-800 mb-4">
-              À propos d'IvoireHabitat
+              À propos d'Habitas.Namy
             </h1>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
               Votre partenaire de confiance pour trouver le logement idéal en Côte d'Ivoire

@@ -35,7 +35,7 @@ export default function LocationCategories() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-heading font-bold text-neutral-800 mb-3">Explorez par Localité</h2>
-          <p className="text-neutral-600 max-w-xl mx-auto">Découvrez des propriétés dans les meilleures zones de Côte d'Ivoire, des quartiers animés d'Abidjan aux régions paisibles.</p>
+          <p className="text-neutral-600 max-w-xl mx-auto">Découvrez la localité en Côte d'Ivoire, des quartiers animés d'Abidjan aux régions paisibles, notamment autour de La Palmeraie, près de Carrefour, où abondent centres commerciaux, restaurants et lieux d’activités pour tous les goûts.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

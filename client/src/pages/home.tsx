@@ -49,7 +49,7 @@ export default function Home() {
                   <Mail className="text-xl mr-4 mt-1" />
                   <div>
                     <h4 className="font-medium mb-1">Email</h4>
-                    <p>contact@ivoirehabitat.ci</p>
+                    <p>habitas.namy@gmail.com</p>
                   </div>
                 </div>
                 
