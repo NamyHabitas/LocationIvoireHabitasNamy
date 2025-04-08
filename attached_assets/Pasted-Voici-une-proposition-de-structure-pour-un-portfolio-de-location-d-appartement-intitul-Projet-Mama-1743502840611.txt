@@ -1,0 +1,99 @@
+Voici une proposition de structure pour un portfolio de location d’appartement intitulé Projet “Maman”. Ce site simple mais professionnel permettra de mettre en valeur un bien immobilier à louer. Je te propose une base que tu pourras faire évoluer selon les besoins.
+
+⸻
+
+Structure du Site – Portfolio “Maman” Location d’Appartement
+
+1. Page d’Accueil
+	•	Nom du Projet / Logo (ex : Maman Location avec un logo maison/apparthotel)
+	•	Image de l’appartement en fond ou en carrousel (vue extérieure, salon, cuisine…)
+	•	Phrase d’accroche (ex : “Un appartement cosy au cœur de [ville]”)
+
+⸻
+
+2. Présentation du Bien
+	•	Nom de l’appartement (ex : Studio Cocoon, Appartement Belle Vue)
+	•	Description complète :
+	•	Superficie
+	•	Nombre de pièces
+	•	Équipements (wifi, lave-linge, cuisine équipée…)
+	•	Meublé / non meublé
+	•	Quartier / proximité transports / commerces
+	•	Galerie photo locale (photos bien cadrées, lumière naturelle)
+
+⸻
+
+3. Informations pratiques
+	•	Disponibilités
+	•	Tarifs (à la nuit, à la semaine, au mois)
+	•	Conditions (non-fumeur, pas d’animaux, dépôt de garantie, durée minimum)
+	•	Adresse approximative (quartier ou ville, sans exposer la rue exacte publiquement si souhaité)
+
+⸻
+
+4. Contact
+	•	Nom du propriétaire / gestionnaire
+	•	Adresse email
+	•	Téléphone (facultatif)
+	•	Formulaire de contact (Nom, Prénom, E-mail, Message)
+	•	Lien vers ton site principal (si tu en as un)
+
+⸻
+
+5. Footer
+	•	Logo ou nom de projet
+	•	Réseaux sociaux (Instagram pour photos, Facebook Marketplace…)
+	•	Mentions légales et politique de confidentialité (si nécessaire)
+
+⸻
+
+Technos suggérées pour le développement
+	•	Frontend : HTML / CSS / JS ou Svelte (comme tu as déjà travaillé avec)
+	•	Hébergement : Netlify / GitHub Pages / Vercel
+	•	Formulaire : Formspree ou EmailJS (en attendant une solution backend plus complète)
+	•	Images : Optimisées (WebP / compresser)
+
+⸻
+
+Exemple minimal en HTML (starter)
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maman Location</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo Maman Location" class="logo" />
+    <h1>Maman Location – Studio à louer</h1>
+  </header>
+
+  <section class="bien">
+    <img src="images/photo-appartement.jpg" alt="Photo appartement" />
+    <h2>Studio Cosy à Paris 11e</h2>
+    <p>25m² meublé, idéalement situé, tout équipé. Proche métro et commerces.</p>
+  </section>
+
+  <section class="infos">
+    <h3>Infos pratiques</h3>
+    <ul>
+      <li>Tarif : 850€/mois</li>
+      <li>Durée minimum : 3 mois</li>
+      <li>Contact : maman-location@email.com</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 Maman Location | Portfolio</p>
+  </footer>
+</body>
+</html>
+
+
+
+⸻
+
+Souhaites-tu que je t’aide à créer tout le site HTML/CSS complet, ou préfères-tu une version plus dynamique avec formulaire connecté et galerie modifiable ? Et tu veux l’héberger où ?

@@ -1,0 +1,82 @@
+# Dépendances
+node_modules/
+.pnp/
+.pnp.js
+
+# Production
+/dist
+/build
+/out
+
+# Fichiers de cache
+.cache/
+.next/
+.nuxt/
+.vite/
+
+# Environnement
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# IDE et éditeurs
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.project
+.classpath
+.settings/
+*.sublime-workspace
+
+# Fichiers de configuration
+.vercel
+.netlify
+.replit
+replit.nix
+.config/
+
+# Tests et couverture
+/coverage
+.nyc_output
+
+# Base de données
+*.sqlite
+*.db
+
+# Fichiers temporaires
+.temp
+.tmp
+tmp/
+
+# Fichiers générés par Drizzle
+drizzle/
+
+# Fichiers de lock (optionnel)
+# Décommentez si vous souhaitez ignorer les fichiers de lock
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Fichiers spécifiques au système
+Thumbs.db
+desktop.ini
